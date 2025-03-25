@@ -1,3 +1,5 @@
+CREATE DATABASE SING;
+
 -- Suppression des tables si elles existent déjà
 DROP TABLE IF EXISTS album_genre;
 DROP TABLE IF EXISTS favoris;
@@ -111,7 +113,8 @@ INSERT INTO albums (titreAlb, idArtiste, anneeSortie, prix, photo) VALUES
 ('Sept 5th', 9, 2016, 14.50, 'sept5th.jpg'),
 ('Last Day of Summer', 10, 2018, 12.50, 'lastdayofsummer.jpg'),
 ('Inspired by True Events', 11, 2019, 15.00, 'inspired.jpg'),
-('HALO', 12, 2020, 13.00, 'halo.jpg');
+('HALO', 12, 2020, 13.00, 'halo.jpg'),
+('Remember Archive', 4, 2021, 15.50, 'ra.jpg');
 
 -- Insertion des associations album-genre
 INSERT INTO album_genre (idAlbum, idGenre) VALUES
@@ -126,15 +129,16 @@ INSERT INTO album_genre (idAlbum, idGenre) VALUES
 (8, 3), -- Sept 5th - R&B
 (9, 3), -- Last Day of Summer - R&B
 (10, 1), -- Inspired by True Events - Pop
-(11, 10); -- HALO - K-Rap
+(11, 10), -- HALO - K-Rap
+(12, 8); -- Remember Archive - K-Hip-hop
 
 -- Insertion d'un utilisateur admin (mot de passe: admin123)
 INSERT INTO utilisateur (mailU, mdpU, pseudoU, userType) VALUES 
-('admin@singloud.com', '$2y$10$NVuKvMRpvRx7Qrn/IIKvdOh/Ar38OFGf1Iy3oZdKJ0JWEaZ4HGtqC', 'Admin', 'admin');
+('admin@singloud.com', '$2y$10$pUe8WrIky7nGe17z6tUCIuXYCQfpFwhfChzeUa3ZKu9/mf7LzXaE.', 'Admin', 'admin');
 
 -- Insertion d'un utilisateur standard (mot de passe: user123)
 INSERT INTO utilisateur (mailU, mdpU, pseudoU, userType) VALUES 
-('user@example.com', '$2y$10$c16rZMoH8H9qYbXbxOG.CeUAjm1vJE0U0aI.jVbIdJxK6kskVTKhO', 'Utilisateur', 'utilisateur');
+('user@example.com', '$2y$10$jCY4mSxHQYjVxILrwZqrkuAQ1UWsL3mQDSLzpx.whM07ZFZgZR2zu', 'Utilisateur', 'utilisateur');
 
 -- Insertion de favoris pour l'utilisateur (relation entre utilisateur et album)
 INSERT INTO favoris (mailU, idAlbum) VALUES
